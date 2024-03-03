@@ -14,7 +14,10 @@ const InputArea = () => {
     const handleSubmit = async (e: any) => {
       console.log(topic);
       e.preventDefault();
-      document.getElementById('GenBtn').innerHTML = '<span class="loading loading-dots loading-lg"></span>';
+      const genBtn = document.getElementById('GenBtn');
+      if (genBtn) {
+        genBtn.innerHTML = '<span class="loading loading-dots loading-lg"></span>';
+      }
       try {
         const response = await fetch('https://ppt-generator.vercel.app/generate', {
           method: 'POST',
@@ -33,10 +36,15 @@ const InputArea = () => {
       }
       catch (error) {
         console.log(error);
-        // document.getElementById('desArea').textContent = "Error: " + error;
+        const desArea = document.getElementById('desArea');
+        if (desArea) {
+          desArea.textContent = "Error: " + error;
+        }
       }
       finally {
-        document.getElementById('GenBtn').innerHTML = 'Generate';
+        if (genBtn) {
+          genBtn.innerHTML = '<span class="loading loading-dots loading-lg"></span>';
+        }
       }
     }
 
