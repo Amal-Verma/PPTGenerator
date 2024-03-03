@@ -27,7 +27,7 @@ const InputArea = () => {
           body: JSON.stringify(topic)
         });
         const data = await response.json();
-        console.log(data.rawText);
+        // console.log(data.rawText);
         // console.log(data.text);
 
         localStorage.setItem("RawText",JSON.stringify(structure(data.rawText)));
@@ -41,10 +41,8 @@ const InputArea = () => {
           desArea.textContent = "Error: " + error;
         }
       }
-      finally {
-        if (genBtn) {
-          genBtn.innerHTML = '<span class="loading loading-dots loading-lg"></span>';
-        }
+      if (genBtn) {
+        genBtn.innerHTML = 'Generate';
       }
     }
 
