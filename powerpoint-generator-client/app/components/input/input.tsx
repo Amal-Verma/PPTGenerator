@@ -16,7 +16,7 @@ const InputArea = () => {
       e.preventDefault();
       document.getElementById('GenBtn').innerHTML = '<span class="loading loading-dots loading-lg"></span>';
       try {
-        const response = await fetch('http://localhost:3001/generate', {
+        const response = await fetch('https://ppt-generator.vercel.app/generate', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
