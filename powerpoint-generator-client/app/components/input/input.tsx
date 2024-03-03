@@ -41,8 +41,10 @@ const InputArea = () => {
           desArea.textContent = "Error: " + error;
         }
       }
-      if (genBtn) {
-        genBtn.innerHTML = 'Generate';
+      finally{
+        if (genBtn) {
+          genBtn.innerHTML = 'Generate';
+        }
       }
     }
 
